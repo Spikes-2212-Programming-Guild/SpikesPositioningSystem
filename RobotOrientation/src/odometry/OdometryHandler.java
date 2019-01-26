@@ -13,15 +13,17 @@ public class OdometryHandler {
 
 	private OdometryUnit odometryUnit;
 	private RelativeDataSupplier yawDiff;
+	private double x, y, baseYaw;
 
 	/**
 	 * creates a new {@link OdometryHandler} object, with given parameters
 	 * 
-	 * */
-	public OdometryHandler(OdometryUnit odometryUnit) {
+	 */
+	public OdometryHandler(OdometryUnit odometryUnit, double x, double y, double baseYaw) {
 		this.odometryUnit = odometryUnit;
-
-		yawDiff = new RelativeDataSupplier(odometryUnit::getYaw);
+		this.x = x;
+		this.y = y;
+		yawDiff = new RelativeDataSupplier(() -> odometryUnit.getYaw() + this.baseYaw);
 	}
 
 	/**
@@ -83,7 +85,7 @@ public class OdometryHandler {
 		double arg = yaw - 1 / 2.0 * yawDifference;
 
 		// if turned to the opposite diretion
-		if (archDistance < 0){
+		if (archDistance < 0) {
 			arg += Math.PI;
 		}
 		/*
@@ -96,6 +98,39 @@ public class OdometryHandler {
 		 * so gives us the robot's position in the navigation system (equation
 		 * 26)
 		 */
-		return MathUtils.convertPolarToCartesian(centerDistance, -arg);
+		Point2D point = MathUtils.convertPolarToCartesian(centerDistance, -arg);
+		x += point.getX();
+		y += point.getY();
+		return point;
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+	public void setBaseYaw(double baseYaw) {
+		this.baseYaw = baseYaw;
+	}
+
+	public double getYaw() {
+		return odometryUnit.getYaw();
+	}
+
+	public void setPosition(double x, double y, double yaw) {
+		setX(x);
+		setY(y);
+		setBaseYaw(yaw);
 	}
 }
