@@ -23,7 +23,7 @@ public class OdometryHandler {
 		this.odometryUnit = odometryUnit;
 		this.x = x;
 		this.y = y;
-		yawDiff = new RelativeDataSupplier(() -> odometryUnit.getYaw() + this.baseYaw);
+		yawDiff = new RelativeDataSupplier(odometryUnit::getYaw);
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class OdometryHandler {
 	}
 
 	public double getYaw() {
-		return odometryUnit.getYaw();
+		return odometryUnit.getYaw() + baseYaw;
 	}
 
 	public void setPosition(double x, double y, double yaw) {
