@@ -39,7 +39,7 @@ public class OdometryHandler {
 	 */
 	public Point2D getDifference() {
 		// getting the yaw angle of the robot in the end of the movement
-		double yaw = Math.toRadians(odometryUnit.getYaw());
+		double yaw = Math.toRadians(odometryUnit.getYaw() + baseYaw);
 		/*
 		 * The robot's displacement's norm, i.e the length of the straight line
 		 * starting from the previous center location of the robot and ending in
