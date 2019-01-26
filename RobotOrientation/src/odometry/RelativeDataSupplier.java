@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2212.odometry;
+package odometry;
 
 import java.util.function.Supplier;
 
@@ -55,7 +55,7 @@ public class RelativeDataSupplier implements Supplier<Double> {
 	}
 
 	public static RelativeDataSupplier fromIntegerSupplier(Supplier<Integer> valueSupplier) {
-		return new RelativeDataSupplier(() -> (double) (valueSupplier.get()));
+		return new RelativeDataSupplier(() -> (double)(valueSupplier.get()));
 	}
 
 	public void initData() {

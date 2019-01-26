@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2212.odometry;
+package odometry;
 
 import java.awt.geom.Point2D;
 
