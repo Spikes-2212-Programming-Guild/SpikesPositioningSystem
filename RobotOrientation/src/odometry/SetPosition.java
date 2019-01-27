@@ -16,7 +16,7 @@ public class SetPosition extends InstantCommand {
 	}
 
 	@Override
-	protected void initialize() {
+	protected synchronized void  synchronizedinitialize() {
 		resetSensors.run();
 		handler.setPosition(x, y, yaw);
 	}
