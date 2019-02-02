@@ -53,7 +53,11 @@ public class RelativeDataSupplier implements Supplier<Double> {
 
 		initData();
 	}
-
+	/**
+	 * 
+	 * @param valueSupplier the {@link Supplier} to construct a {@link RelativeDataSupplier} from
+	 * @return the {@link RelativeDataSupplier}
+	 */
 	public static RelativeDataSupplier fromIntegerSupplier(Supplier<Integer> valueSupplier) {
 		return new RelativeDataSupplier(() -> (double)(valueSupplier.get()));
 	}

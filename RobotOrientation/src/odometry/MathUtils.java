@@ -5,7 +5,7 @@ import java.awt.geom.Point2D;
 /**
  * This class contains useful static methods which calculate several important
  * things to be used in the RobotOrientation project
- *
+ * 
  */
 public class MathUtils {
 
@@ -19,7 +19,7 @@ public class MathUtils {
 	 * @param argument
 	 *            the argument of the vector (the argument between the vector
 	 *            and the X axis).
-	 * @return a point representing the the vector by its X and Y component (the
+	 * @return a point representing the vector by its X and Y component (the
 	 *         cartesian form of the vector) in that order: (X,Y)
 	 */
 	public static Point2D convertPolarToCartesian(double norm, double argument) {
@@ -31,7 +31,7 @@ public class MathUtils {
 	}
 
 	/**
-	 * rotates a given vector, by a given angle, and returns the result
+	 * rotates a given vector by a given angle, and returns the result
 	 * 
 	 * @param vector
 	 *            the vector, represented in the cartesian form (as a point)
@@ -51,17 +51,16 @@ public class MathUtils {
 	}
 
 	/**
-	 * uses the cosine law to return the third side of a triangle, knowing the
+	 * uses the cosines law to return the third side of a triangle, knowing the
 	 * two other sides and the angle between them
 	 * 
 	 * @param side1
-	 *            one side of a triangle
+	 *            one side of the triangle
 	 * @param side2
 	 *            another side of the triangle
 	 * @param angle
 	 *            the angle between the two sides above
-	 * @return the third side of the triangle, calculated by the formula: s3 =
-	 *         sqrt(s1^2+s2^2-2*s1*s2*cos(angle))
+	 * @return the third side of the triangle, calculated by the cosines law
 	 */
 	public static double cosineLaw(double side1, double side2, double angle) {
 		return Math.sqrt(side1 * side1 + side2 * side2 - 2 * side1 * side2 * Math.cos(angle));

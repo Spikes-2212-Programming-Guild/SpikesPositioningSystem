@@ -3,6 +3,10 @@ package odometry;
 import java.awt.geom.Point2D;
 
 /**
+ *<ul><i><a><h1><li><strong><b>The calculate method should be called repeatedly, otherwise your robot's position
+ * 	would not be recalculated, and therefore will be substantially inaccurate.
+ * </b></strong></li></h1></a></i></ul>
+ * 
  * a class which uses encoders to find the progress of a robot between discrete
  * times
  * 
@@ -17,7 +21,10 @@ public class OdometryHandler {
 
 	/**
 	 * creates a new {@link OdometryHandler} object, with given parameters
-	 * 
+	 * @param odometryUnit the {@link OdometryUnit} containing your robot's data
+	 * @param x the starting x coordinate of your robot
+	 * @param y the starting y coordinate of your robot
+	 * @param baseYaw the angle between the x axis and your robot's starting position
 	 */
 	public OdometryHandler(OdometryUnit odometryUnit, double x, double y, double baseYaw) {
 		this.odometryUnit = odometryUnit;
@@ -28,6 +35,10 @@ public class OdometryHandler {
 	}
 
 	/**
+	 * <ul><i><a><h1><li><strong><b>This method should be called repeatedly, otherwise your robot's position
+	 * 	would not be recalculated, and therefore will be substantially inaccurate.
+	 * </b></strong></li></h1></a></i></ul>
+	 * 
 	 * Calculates and returns the displacement of the robot since the last
 	 * check.</br>
 	 * 
@@ -38,7 +49,7 @@ public class OdometryHandler {
 	 *         last call to this method, in the navigation frame.
 	 * 
 	 */
-	public Point2D getDifference() {
+	public Point2D calculate() {
 		// getting the yaw angle of the robot in the end of the movement
 		double yaw = Math.toRadians(odometryUnit.getYaw() + baseYaw);
 		/*
@@ -104,31 +115,60 @@ public class OdometryHandler {
 		y += point.getY();
 		return point;
 	}
-
+	
+	/**
+	 * 
+	 * @return the robot's current x coordinate
+	 */
 	public double getX() {
 		return x;
 	}
-
+	
+	/**
+	 * 
+	 * @return the robot's current y coordinate
+	 */
 	public double getY() {
 		return y;
 	}
-
+	
+	/**
+	 * 
+	 * @param x the value to set the robot's x coordinate to
+	 */
 	public void setX(double x) {
 		this.x = x;
 	}
-
+	
+	/**
+	 * 
+	 * @param y the value to set the robot's y coordinate to
+	 */
 	public void setY(double y) {
 		this.y = y;
 	}
-
+	
+	/**
+	 * 
+	 * @param baseYaw the value to set the robot's angle to
+	 */
 	public void setBaseYaw(double baseYaw) {
 		this.baseYaw = baseYaw;
 	}
-
+	
+	/**
+	 * 
+	 * @return the robot's current angle
+	 */
 	public double getYaw() {
 		return odometryUnit.getYaw() + baseYaw;
 	}
-
+	 /**
+	  * 
+	  * @param x the value to set the robot's x coordinate to
+	  * @param y the value to set the robot's y coordinate to
+	  * @param yaw the value to set the robot's angle to
+	  */
 	public void setPosition(double x, double y, double yaw) {
 		setX(x);
 		setY(y);
