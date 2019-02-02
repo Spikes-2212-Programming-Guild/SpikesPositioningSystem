@@ -3,6 +3,10 @@ package odometry;
 import java.awt.geom.Point2D;
 
 /**
+ *<ul><i><a><h1><li><strong><b>The calculate method should be called repeatedly, otherwise your robot's position
+ * 	would not be recalculated, and therefore will be substantially inaccurate.
+ * </b></strong></li></h1></a></i></ul>
+ * 
  * a class which uses encoders to find the progress of a robot between discrete
  * times
  * 
@@ -31,6 +35,10 @@ public class OdometryHandler {
 	}
 
 	/**
+	 * <ul><i><a><h1><li><strong><b>This method should be called repeatedly, otherwise your robot's position
+	 * 	would not be recalculated, and therefore will be substantially inaccurate.
+	 * </b></strong></li></h1></a></i></ul>
+	 * 
 	 * Calculates and returns the displacement of the robot since the last
 	 * check.</br>
 	 * 
