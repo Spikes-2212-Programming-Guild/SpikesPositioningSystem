@@ -22,8 +22,8 @@ public class OdometryHandler {
 	/**
 	 * creates a new {@link OdometryHandler} object, with given parameters
 	 * @param odometryUnit the {@link OdometryUnit} containing your robot's data
-	 * @param x the starting x co-ordinate of your robot
-	 * @param y the starting y co-ordinate of your robot
+	 * @param x the starting x coordinate of your robot
+	 * @param y the starting y coordinate of your robot
 	 * @param baseYaw the angle between the x axis and your robot's starting position
 	 */
 	public OdometryHandler(OdometryUnit odometryUnit, double x, double y, double baseYaw) {
@@ -118,7 +118,7 @@ public class OdometryHandler {
 	
 	/**
 	 * 
-	 * @return the robot's current x co-ordinate
+	 * @return the robot's current x coordinate
 	 */
 	public double getX() {
 		return x;
@@ -126,7 +126,7 @@ public class OdometryHandler {
 	
 	/**
 	 * 
-	 * @return the robot's current y co-ordinate
+	 * @return the robot's current y coordinate
 	 */
 	public double getY() {
 		return y;
@@ -134,7 +134,7 @@ public class OdometryHandler {
 	
 	/**
 	 * 
-	 * @param x the value to set the robot's x co-ordinate to
+	 * @param x the value to set the robot's x coordinate to
 	 */
 	public void setX(double x) {
 		this.x = x;
@@ -142,7 +142,7 @@ public class OdometryHandler {
 	
 	/**
 	 * 
-	 * @param y the value to set the robot's y co-ordinate to
+	 * @param y the value to set the robot's y coordinate to
 	 */
 	public void setY(double y) {
 		this.y = y;
@@ -165,8 +165,8 @@ public class OdometryHandler {
 	}
 	 /**
 	  * 
-	  * @param x the value to set the robot's x co-ordinate to
-	  * @param y the value to set the robot's y co-ordinate to
+	  * @param x the value to set the robot's x coordinate to
+	  * @param y the value to set the robot's y coordinate to
 	  * @param yaw the value to set the robot's angle to
 	  */
 	public void setPosition(double x, double y, double yaw) {
