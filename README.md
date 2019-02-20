@@ -34,7 +34,7 @@ once there, add the following line `compile files('libs/YOUR_JAR.jar')` under al
 4. Hover on Build Path
 5. Click on Configure Build Path
 6. Click on Add External JARs
-7. Find and add the SpikesLib jar file
+7. Find and add the SPS jar file
 8. return 0
 
 ## <a name = 'More'> Learn more </a>
